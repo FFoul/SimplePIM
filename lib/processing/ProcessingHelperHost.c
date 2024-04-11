@@ -13,7 +13,7 @@ handle_t* create_handle(const char* func_pathname, uint32_t func_type){
     }
 
     if(func_type == 0){
-        char compile_cmd[2048] = "dpu-upmem-dpurte-clang -O2 -DNR_TASKLETS=12 -I./ -D__mapfunc_filename__=\"<"; 
+        char compile_cmd[2048] = "/home/lhl/workingspace/upmem-sdk/bin/dpu-upmem-dpurte-clang -O2 -DNR_TASKLETS=12 -I./ -D__mapfunc_filename__=\"<"; 
         strcat(compile_cmd, func_pathname);
         strcat(compile_cmd, "/map.h>\" -o bin/dpu_map_");
         strcat(compile_cmd, func_bodyname);
@@ -25,7 +25,7 @@ handle_t* create_handle(const char* func_pathname, uint32_t func_type){
         strcpy(handle->bin_location, bin_location);
     }
     else if(func_type == 1){
-        char compile_cmd[2048] = "dpu-upmem-dpurte-clang -O2 -DNR_TASKLETS=12 -I./ -D__mapredfunc_pathname__=\"<"; 
+        char compile_cmd[2048] = "/home/lhl/workingspace/upmem-sdk/bin/dpu-upmem-dpurte-clang -O2 -DNR_TASKLETS=12 -I./ -D__mapredfunc_pathname__=\"<"; 
         strcat(compile_cmd, func_pathname);
         strcat(compile_cmd, "/map_to_val_func.h>\" -D__combinefunc_pathname__=\"<");
         strcat(compile_cmd, func_pathname);
@@ -92,7 +92,7 @@ handle_t* create_handle(const char* func_pathname, uint32_t func_type){
 
     }
     else if(func_type == 2){
-        char compile_cmd[2048] = "dpu-upmem-dpurte-clang -O2 -DNR_TASKLETS=12 -o bin/dpu_zip";
+        char compile_cmd[2048] = "/home/lhl/workingspace/upmem-sdk/bin/dpu-upmem-dpurte-clang -O2 -DNR_TASKLETS=12 -o bin/dpu_zip";
         strcat(compile_cmd, " ../../lib/processing/zip/zip_dpu.c ../../lib/processing/zip/ZipProcessing.c ../../lib/processing/ProcessingHelper.c");
         int succ = system(compile_cmd);
 
